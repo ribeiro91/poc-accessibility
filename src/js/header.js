@@ -1,3 +1,6 @@
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
+
 (() => {
   // src/utils/constants.js
   var TAB_KEY = "Tab";
@@ -421,8 +424,8 @@
         console.log("current focus element:");
         console.log(currentFocusElement);
         console.log($(header).find(e.target).length !== 0);
-        if (!document.querySelector('header').contains(e.target)) {
-            console.log('inside if')
+        if (!document.querySelector("header").contains(e.target)) {
+          console.log("inside if");
           const focusableChildren = getFocusableChildren(
             document.querySelector("header")
           );
@@ -431,12 +434,12 @@
           const lastFocusableElement =
             focusableChildren[focusableChildren.length - 1];
 
-            console.log(
-              prevFocusElement === firstFocusableElement && !isManualFocus
-            );
-            console.log(
-              prevFocusElement === lastFocusableElement && !isManualFocus
-            );
+          console.log(
+            prevFocusElement === firstFocusableElement && !isManualFocus
+          );
+          console.log(
+            prevFocusElement === lastFocusableElement && !isManualFocus
+          );
           if (prevFocusElement === firstFocusableElement) {
             lastFocusableElement.focus();
             isManualFocus = true;

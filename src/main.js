@@ -20,5 +20,3 @@ document.querySelector("#app").innerHTML = test;
 // document.querySelector('.cmp-header').addEventListener('focusout', (e) => {
 //   console.log(e)
 // })
-
-
