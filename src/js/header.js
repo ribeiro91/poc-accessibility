@@ -477,7 +477,7 @@ window.$ = window.jQuery = jQuery;
       document
         .querySelector(".cmp-skip-navigation-link")
         .addEventListener("focusout", (event) => {
-          console.log(event);
+            console.log(event);
         });
 
       $cmpHeadHamMenuIcon.on("click", function (event) {
