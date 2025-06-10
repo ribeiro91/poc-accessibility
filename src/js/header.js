@@ -554,9 +554,11 @@ window.$ = window.jQuery = jQuery;
         } else {
           $(this).addClass("active");
 
-          document.addEventListener("blur", (event) => {
-            console.log(event.target);
-          });
+          document
+            .querySelector(".cmp-image__link")
+            .addEventListener("blur", (event) => {
+              console.log(event);
+            });
 
           $navContainer.css("display", "flex");
           // POC work
