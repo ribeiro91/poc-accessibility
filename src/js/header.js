@@ -484,7 +484,7 @@ window.$ = window.jQuery = jQuery;
 
         document
         .querySelector(".cmp-skip-navigation-link")
-        .addEventListener("focusin", (event) => {
+        .addEventListener("focusout", (event) => {
             event.target.style.setProperty("opacity", 0);
         });
       });
