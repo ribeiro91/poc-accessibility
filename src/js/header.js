@@ -417,25 +417,25 @@ window.$ = window.jQuery = jQuery;
       const handleFocusTrap = (e) => {
         console.log("focusin event triggered");
         console.log(e);
-        // const { target, relatedTarget } = e;
-        // const focusableChildren = getFocusableChildren(
-        //   document.querySelector("header")
-        // );
-        // const firstFocusableElement = focusableChildren[0];
-        // const lastFocusableElement =
-        //   focusableChildren[focusableChildren.length - 1];
-        // const nextFocusableElement = relatedTarget;
+        const { target, relatedTarget } = e;
+        const focusableChildren = getFocusableChildren(
+          document.querySelector("header")
+        );
+        const firstFocusableElement = focusableChildren[0];
+        const lastFocusableElement =
+          focusableChildren[focusableChildren.length - 1];
+        const nextFocusableElement = relatedTarget;
 
-        // if (
-        //   target === lastFocusableElement &&
-        //   !document.querySelector("header").contains(relatedTarget)
-        // ) {
-        //   firstFocusableElement.focus();
-        // }
+        if (
+          target === lastFocusableElement &&
+          !document.querySelector("header").contains(relatedTarget)
+        ) {
+          firstFocusableElement.focus();
+        }
 
-        // if(target === firstFocusableElement && !document.querySelector("header").contains(relatedTarget)) {
-        //   lastFocusableElement.focus();
-        // }
+        if(target === firstFocusableElement && !document.querySelector("header").contains(relatedTarget)) {
+          lastFocusableElement.focus();
+        }
         // prevFocusElement = currentFocusElement;
         // currentFocusElement = target;
         // console.log("previous focus element");
