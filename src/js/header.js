@@ -416,42 +416,61 @@ window.$ = window.jQuery = jQuery;
 
       const handleFocusTrap = (e) => {
         console.log("focusin event triggered");
-        const { target } = e;
-        prevFocusElement = currentFocusElement;
-        currentFocusElement = target;
-        console.log("previous focus element");
-        console.log(prevFocusElement);
-        console.log("current focus element:");
-        console.log(currentFocusElement);
-        console.log($(header).find(e.target).length !== 0);
-        if (!document.querySelector("header").contains(e.target)) {
-          console.log("inside if");
-          const focusableChildren = getFocusableChildren(
-            document.querySelector("header")
-          );
+        console.log(e);
+        const { target, relatedTarget } = e;
+        const focusableChildren = getFocusableChildren(
+          document.querySelector("header")
+        );
+        const firstFocusableElement = focusableChildren[0];
+        const lastFocusableElement =
+          focusableChildren[focusableChildren.length - 1];
+        const nextFocusableElement = relatedTarget;
 
-          const firstFocusableElement = focusableChildren[0];
-          const lastFocusableElement =
-            focusableChildren[focusableChildren.length - 1];
-
-          console.log(
-            prevFocusElement === firstFocusableElement && !isManualFocus
-          );
-          console.log(
-            prevFocusElement === lastFocusableElement && !isManualFocus
-          );
-          if (prevFocusElement === firstFocusableElement) {
-            lastFocusableElement.focus();
-            isManualFocus = true;
-          }
-
-          if (prevFocusElement === lastFocusableElement) {
-            firstFocusableElement.focus();
-            isManualFocus = true;
-          }
-        } else {
-          isManualFocus = false;
+        if (
+          target === lastFocusableElement &&
+          !document.querySelector("header").contains(relatedTarget)
+        ) {
+          firstFocusableElement.focus();
         }
+
+        if(target === firstFocusableElement && !document.querySelector("header").contains(relatedTarget)) {
+          lastFocusableElement.focus();
+        }
+        // prevFocusElement = currentFocusElement;
+        // currentFocusElement = target;
+        // console.log("previous focus element");
+        // console.log(prevFocusElement);
+        // console.log("current focus element:");
+        // console.log(currentFocusElement);
+        // console.log($(header).find(e.target).length !== 0);
+        // if (!document.querySelector("header").contains(e.target)) {
+        //   console.log("inside if");
+        //   const focusableChildren = getFocusableChildren(
+        //     document.querySelector("header")
+        //   );
+
+        //   const firstFocusableElement = focusableChildren[0];
+        //   const lastFocusableElement =
+        //     focusableChildren[focusableChildren.length - 1];
+
+        //   console.log(
+        //     prevFocusElement === firstFocusableElement && !isManualFocus
+        //   );
+        //   console.log(
+        //     prevFocusElement === lastFocusableElement && !isManualFocus
+        //   );
+        //   if (prevFocusElement === firstFocusableElement) {
+        //     lastFocusableElement.focus();
+        //     isManualFocus = true;
+        //   }
+
+        //   if (prevFocusElement === lastFocusableElement) {
+        //     firstFocusableElement.focus();
+        //     isManualFocus = true;
+        //   }
+        // } else {
+        //   isManualFocus = false;
+        // }
 
         // const focusableChildren = getFocusableChildren(
         // document.querySelector("header")
@@ -485,18 +504,20 @@ window.$ = window.jQuery = jQuery;
           .addEventListener("focus", (event) => {
             console.log("focus event triggered on skip navigation link");
             event.target.style.setProperty("opacity", 1);
-        });
-
-        document.querySelector(".cmp-skip-navigation-link").addEventListener("click", () => {
-            console.log("click event triggered on skip navigation link");
-            document.querySelector('#maincontent')?.focus()
-        });
+          });
 
         document
-        .querySelector(".cmp-skip-navigation-link")
-        .addEventListener("blur", (event) => {
+          .querySelector(".cmp-skip-navigation-link")
+          .addEventListener("click", () => {
+            console.log("click event triggered on skip navigation link");
+            document.querySelector("#maincontent")?.focus();
+          });
+
+        document
+          .querySelector(".cmp-skip-navigation-link")
+          .addEventListener("blur", (event) => {
             event.target.style.setProperty("opacity", 0);
-        });
+          });
         // document
         //   .querySelector(".cmp-skip-navigation-link")
         //   .addEventListener("focusin", (event) => {
@@ -526,12 +547,12 @@ window.$ = window.jQuery = jQuery;
             $navContainer.off("transitionend");
           });
 
-          document.removeEventListener("focusin", handleFocusTrap);
+          document.removeEventListener("focusout", handleFocusTrap);
           // POC work
         } else {
           $(this).addClass("active");
 
-          document.addEventListener("focusin", handleFocusTrap);
+          document.addEventListener("focusout", handleFocusTrap);
 
           $navContainer.css("display", "flex");
           // POC work
