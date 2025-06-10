@@ -476,6 +476,10 @@ window.$ = window.jQuery = jQuery;
 
       document.addEventListener("pageLoaded", () => {
         console.log("pageLoaded event triggered");
+        document.addEventListener("focusin", (event)=> {
+            console.log("document focusin event triggered");
+            console.log(event);
+        })
         document
           .querySelector(".cmp-skip-navigation-link")
           .addEventListener("focus", (event) => {
