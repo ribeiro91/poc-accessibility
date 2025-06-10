@@ -478,18 +478,29 @@ window.$ = window.jQuery = jQuery;
         console.log("pageLoaded event triggered");
         document
           .querySelector(".cmp-skip-navigation-link")
+          .addEventListener("focus", (event) => {
+            console.log("focus event triggered on skip navigation link");
+            console.log(event);
+          });
+
+        document
+        .querySelector(".cmp-skip-navigation-link")
+        .addEventListener("blur", (event) => {
+            console.log("blur event triggered on skip navigation link");
+            console.log(event);
+        });
+        document
+          .querySelector(".cmp-skip-navigation-link")
           .addEventListener("focusin", (event) => {
             event.target.style.setProperty("opacity", 1);
           });
 
         document
-        .querySelector(".cmp-skip-navigation-link")
-        .addEventListener("focusout", (event) => {
+          .querySelector(".cmp-skip-navigation-link")
+          .addEventListener("focusout", (event) => {
             event.target.style.setProperty("opacity", 0);
-        });
+          });
       });
-
-      
 
       $cmpHeadHamMenuIcon.on("click", function (event) {
         event.stopImmediatePropagation();
@@ -513,7 +524,6 @@ window.$ = window.jQuery = jQuery;
           $(this).addClass("active");
 
           document.addEventListener("focusin", handleFocusTrap);
-
 
           $navContainer.css("display", "flex");
           // POC work
