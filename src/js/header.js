@@ -547,12 +547,16 @@ window.$ = window.jQuery = jQuery;
             $navContainer.off("transitionend");
           });
 
-          document.removeEventListener("focusout", handleFocusTrap);
+          document.removeEventListener("blur", (event) => {
+            console.log(event.target)
+          });
           // POC work
         } else {
           $(this).addClass("active");
 
-          document.addEventListener("focusout", handleFocusTrap);
+          document.addEventListener("blur", (event) => {
+            console.log(event.target);
+          });
 
           $navContainer.css("display", "flex");
           // POC work
