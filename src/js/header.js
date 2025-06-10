@@ -488,7 +488,7 @@ window.$ = window.jQuery = jQuery;
         });
 
         document.querySelector(".cmp-skip-navigation-link").addEventListener("click", () => {
-            
+            console.log("click event triggered on skip navigation link");
             document.querySelector('#maincontent')?.focus()
         });
 
