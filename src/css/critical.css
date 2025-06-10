@@ -19241,6 +19241,7 @@ body[data-aos-delay="3000"] [data-aos] {
   text-align: left;
   line-height: 22px;
   letter-spacing: 0px;
+  display: block;
 }
 
 .cmp-header .cmp-skip-navigation-link:focus,
