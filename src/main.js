@@ -17,6 +17,9 @@ import "./js/container.js";
 
 document.querySelector("#app").innerHTML = test;
 
+const event = new Event("pageLoaded");
+document.dispatchEvent(event);
+
 // document.querySelector('.cmp-header').addEventListener('focusout', (e) => {
 //   console.log(e)
 // })

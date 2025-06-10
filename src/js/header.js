@@ -474,11 +474,16 @@ window.$ = window.jQuery = jQuery;
         // }
       };
 
-      document
-        .querySelector(".cmp-skip-navigation-link")
-        .addEventListener("focusout", (event) => {
+      document.addEventListener("pageLoaded", () => {
+        console.log("pageLoaded event triggered");
+        document
+          .querySelector(".cmp-skip-navigation-link")
+          .addEventListener("focusout", (event) => {
             console.log(event);
-        });
+          });
+      });
+
+      
 
       $cmpHeadHamMenuIcon.on("click", function (event) {
         event.stopImmediatePropagation();
