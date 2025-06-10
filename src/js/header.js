@@ -474,6 +474,12 @@ window.$ = window.jQuery = jQuery;
         // }
       };
 
+      document
+        .querySelector(".cmp-skip-navigation-link")
+        .addEventListener("focusout", (event) => {
+          console.log(event);
+        });
+
       $cmpHeadHamMenuIcon.on("click", function (event) {
         event.stopImmediatePropagation();
 
@@ -497,11 +503,6 @@ window.$ = window.jQuery = jQuery;
 
           document.addEventListener("focusin", handleFocusTrap);
 
-          document
-            .querySelector(".cmp-skip-navigation-link")
-            .addEventListener("focusout", () => {
-              console.log(event);
-            });
 
           $navContainer.css("display", "flex");
           // POC work
