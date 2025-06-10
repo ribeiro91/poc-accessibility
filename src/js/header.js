@@ -497,6 +497,12 @@ window.$ = window.jQuery = jQuery;
 
           document.addEventListener("focusin", handleFocusTrap);
 
+          document
+            .querySelector(".cmp-skip-navigation-link")
+            .addEventListener("focusout", () => {
+              console.log(event);
+            });
+
           $navContainer.css("display", "flex");
           // POC work
           $devicesNavItemAtag.first().focus();
