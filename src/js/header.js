@@ -474,37 +474,41 @@ window.$ = window.jQuery = jQuery;
         // }
       };
 
-      document.addEventListener("pageLoaded", () => {
-        console.log("pageLoaded event triggered");
-        document.addEventListener("focusin", (event)=> {
-            console.log("document focusin event triggered");
-            console.log(event);
-        })
-        document
-          .querySelector(".cmp-skip-navigation-link")
-          .addEventListener("focus", (event) => {
-            console.log("focus event triggered on skip navigation link");
-            console.log(event);
-          });
+    //   document.addEventListener("pageLoaded", () => {
+    //     // console.log("pageLoaded event triggered");
+    //     // document.addEventListener("focusin", (event)=> {
+    //     //     console.log("document focusin event triggered");
+    //     //     console.log(event);
+    //     // })
+    //     document
+    //       .querySelector(".cmp-skip-navigation-link")
+    //       .addEventListener("focus", (event) => {
+    //         console.log("focus event triggered on skip navigation link");
+    //         event.target.style.setProperty("opacity", 1);
+    //     });
 
-        document
-        .querySelector(".cmp-skip-navigation-link")
-        .addEventListener("blur", (event) => {
-            console.log("blur event triggered on skip navigation link");
-            console.log(event);
-        });
-        document
-          .querySelector(".cmp-skip-navigation-link")
-          .addEventListener("focusin", (event) => {
-            event.target.style.setProperty("opacity", 1);
-          });
+    //     document.querySelector(".cmp-skip-navigation-link").addEventListener("click", (event) => {
+            
+    //         const offsetTop = document.querySelector('#')
+    //     });
 
-        document
-          .querySelector(".cmp-skip-navigation-link")
-          .addEventListener("focusout", (event) => {
-            event.target.style.setProperty("opacity", 0);
-          });
-      });
+    //     document
+    //     .querySelector(".cmp-skip-navigation-link")
+    //     .addEventListener("blur", (event) => {
+    //         event.target.style.setProperty("opacity", 0);
+    //     });
+    //     // document
+    //     //   .querySelector(".cmp-skip-navigation-link")
+    //     //   .addEventListener("focusin", (event) => {
+    //     //     event.target.style.setProperty("opacity", 1);
+    //     //   });
+
+    //     // document
+    //     //   .querySelector(".cmp-skip-navigation-link")
+    //     //   .addEventListener("focusout", (event) => {
+    //     //     event.target.style.setProperty("opacity", 0);
+    //     //   });
+    //   });
 
       $cmpHeadHamMenuIcon.on("click", function (event) {
         event.stopImmediatePropagation();
