@@ -19068,6 +19068,10 @@ body[data-aos-delay="3000"] [data-aos] {
   font-size: 0;
 }
 
+.cmp-image__link {
+  display: block;
+}
+
 .cmp-header__logo__menu-wrapper {
   display: flex;
   align-items: center;
