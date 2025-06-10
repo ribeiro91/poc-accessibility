@@ -478,9 +478,15 @@ window.$ = window.jQuery = jQuery;
         console.log("pageLoaded event triggered");
         document
           .querySelector(".cmp-skip-navigation-link")
-          .addEventListener("focusout", (event) => {
-            console.log(event);
+          .addEventListener("focusin", (event) => {
+            event.target.css('opacity', '1');
           });
+
+        document
+        .querySelector(".cmp-skip-navigation-link")
+        .addEventListener("focusin", (event) => {
+            event.target.css("opacity", "0");
+        });
       });
 
       
