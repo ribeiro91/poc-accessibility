@@ -503,21 +503,23 @@ window.$ = window.jQuery = jQuery;
           .querySelector(".cmp-skip-navigation-link")
           .addEventListener("focus", (event) => {
             console.log("focus event triggered on skip navigation link");
-            event.target.style.setProperty("opacity", 1);
+            // event.target.style.setProperty("opacity", 1);
           });
 
-        document
-          .querySelector(".cmp-skip-navigation-link")
-          .addEventListener("click", () => {
-            console.log("click event triggered on skip navigation link");
-            document.querySelector("#maincontent")?.focus();
-          });
+          document
+            .querySelector(".cmp-skip-navigation-link")
+            .addEventListener("focusin", (event) => {
+              console.log("focusin event triggered on skip navigation link");
+            //   event.target.style.setProperty("opacity", 1);
+            });
 
-        document
-          .querySelector(".cmp-skip-navigation-link")
-          .addEventListener("blur", (event) => {
-            event.target.style.setProperty("opacity", 0);
-          });
+        
+
+        // document
+        //   .querySelector(".cmp-skip-navigation-link")
+        //   .addEventListener("blur", (event) => {
+        //     event.target.style.setProperty("opacity", 0);
+        //   });
         // document
         //   .querySelector(".cmp-skip-navigation-link")
         //   .addEventListener("focusin", (event) => {
