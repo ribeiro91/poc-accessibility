@@ -479,13 +479,13 @@ window.$ = window.jQuery = jQuery;
         document
           .querySelector(".cmp-skip-navigation-link")
           .addEventListener("focusin", (event) => {
-            event.target.css('opacity', '1');
+            event.target.style.setProperty("opacity", 1);
           });
 
         document
         .querySelector(".cmp-skip-navigation-link")
         .addEventListener("focusin", (event) => {
-            event.target.css("opacity", "0");
+            event.target.style.setProperty("opacity", 0);
         });
       });
 
